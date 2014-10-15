@@ -5,6 +5,7 @@
         "jquery": "1.9",
         "backbone": null,
         "underscore": null,
-        "requirejs": null
+        "requirejs": null,
+	"less": null
     }
 }
