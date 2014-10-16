@@ -1,21 +1,25 @@
 require.config({
-    baseUrl: "libs",
+    baseUrl: "js/libs",
     paths: {
-        "jquery": ["http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
-                    "jquery/jquery"],
-        "underscore": "underscore/underscore-min",
-        "backbone": "backbone/backbone-min"
+        "jquery":       "jquery/jquery",
+        "underscore":   "underscore/underscore-min",
+        "backbone":     "backbone/backbone",
+        "text":         "requirejs-text/text",
+        "tmpl":         "../tmpl",
+        "app":          "../app"
     },
     shim: {
         "backbone": {
-            deps: ["jquery", "underscore"],
+            deps: ["jquery", "underscore", "text"],
             exports: "Backbone"
+        },
+        'underscore': {
+            exports: '_'
         }
-    },
-    waitSeconds: 10
+    }
 });
 
-require(['jquery', 'underscore', 'backbone', 'app/router'], function(jquery, _, Backbone, Router){
+require(['jquery', 'backbone', 'app/router'], function($, Backbone, Router){
     var router = new Router();
     Backbone.history.start();
     //new App;

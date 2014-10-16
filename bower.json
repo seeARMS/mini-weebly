@@ -6,6 +6,8 @@
         "backbone": null,
         "underscore": null,
         "requirejs": null,
-	"less": null
+		"requirejs-text": null,
+		"less": null
+
     }
 }

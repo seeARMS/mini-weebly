@@ -3,9 +3,10 @@ define(function (require) {
     "use strict";
 
     var $           = require('jquery'),
-        HomeView    = require('app/views/Home'),
+        HomeView    = require('app/views/home'),
 		
-		homeView = new HomeView({el: $content});
+        $body = $('body'),
+		homeView = new HomeView({el: $body});
 
 	
     return Backbone.Router.extend({
@@ -17,7 +18,6 @@ define(function (require) {
         home: function () {
             homeView.delegateEvents();
             homeView.render();
-            shellView.selectMenuItem('home-menu');
         },
 
     });
