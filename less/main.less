@@ -1,4 +1,11 @@
 /* Mixin */
+
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%
+}
+
 .box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
     -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
     -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
@@ -9,3 +16,28 @@
 #somediv {
     .box-shadow(5px, 5px, 6px, 0.3);
 } 
+
+
+#header {
+	width: 100%;
+	display: block;
+	height: 42px;
+	background-color: #518DCA;
+
+	img#logo {
+		padding-left: 25px;
+	}
+
+}
+
+#sidebar {
+	width: 300px;
+	float: left;
+	background-color: #2C3E50;
+	height: 100%;
+}
+
+#main {
+	float: left;
+}
+
