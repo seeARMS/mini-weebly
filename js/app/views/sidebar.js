@@ -5,20 +5,15 @@ define(function (require) {
     var $                   = require('jquery'),
         _                   = require('underscore'),
         Backbone            = require('backbone'),
-        main                = require('text!tmpl/home.html'),
-        SidebarView         = require('app/views/sidebar'),
+        content             = require('text!tmpl/sidebar.html'),
 
-        template = _.template(main),
 
-        $sidebar = $('#sidebar'),
-
-        sidebarView = new SidebarView({el: $sidebar});
+        template = _.template(content);
 
     return Backbone.View.extend({
 
         render: function () {
             this.$el.html(template());
-            sidebarView.render();
 
             return this;
         }

@@ -4,11 +4,11 @@ define(function (require) {
 
     var $           = require('jquery'),
         HomeView    = require('app/views/home'),
-		
-        $body = $('body'),
-		homeView = new HomeView({el: $body});
 
-	
+        $main = $('#main'),
+
+		homeView = new HomeView({el: $main});
+
     return Backbone.Router.extend({
 
         routes: {
