@@ -8,18 +8,15 @@ module.exports = function(grunt) {
           optimization: 2
         },
         files: {
+          // target.css file: source.less file
           "css/main.css": "less/main.less"
         }
-      },
-
-    },
-    jshint: {
-       all: ['Gruntfile.js', 'js/*.js', 'js/app/**/*.js']
+      }
     },
     watch: {
       styles: {
-        files: ['less/*.less', '<%= jshint.all %>'],
-        tasks: ['less', 'jshint'],
+        files: ['less/*.less'], // which files to watch
+        tasks: ['less'],
         options: {
           nospawn: true
         }
@@ -29,7 +26,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('default', ['watch']);
 };
