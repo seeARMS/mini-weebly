@@ -1,0 +1,43 @@
+.font-names
+{
+
+    @font-face {
+        font-family: 'proxima-nova';
+        src: url('@{path-fonts}/ProximaNova-Reg.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'proxima-nova';
+        src: url('@{path-fonts}/ProximaNova-Sbold.otf') format('opentype');
+        font-weight: bold;
+    }
+
+}
+
+
+.btn (@color, @background-color, @border) {
+    font-family: proxima-nova;
+    width: 75%;
+    color: @color;
+    background-color: @background-color;
+    border-radius: 5px;
+    border: @border;
+    margin: 10px auto 10px auto;
+}
+
+.btn-sprite (@bg-position) {
+  float: right;
+  background-image: url(/img/sprites/Add-Delete-Edit-Icons.png);
+  background-repeat: no-repeat;
+  height: 18px;
+  width: 27px;
+  background-position: @bg-position;
+  margin-top: 6px;
+}
+
+
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+    -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+    box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}

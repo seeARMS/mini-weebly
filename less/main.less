@@ -1,4 +1,5 @@
-/* Mixin */
+@import 'variables.less';
+@import 'mixins.less';
 
 body, html {
 	margin: 0;
@@ -6,23 +7,11 @@ body, html {
 	height: 100%
 }
 
-.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
-    -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
-    -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
-    box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
-}
- 
-/* Implementation */
-#somediv {
-    .box-shadow(5px, 5px, 6px, 0.3);
-} 
-
-
 #header {
 	width: 100%;
 	display: block;
 	height: 42px;
-	background-color: #518DCA;
+	background-color: @btn-color;
 
 	img#logo {
 		padding-left: 25px;
@@ -31,13 +20,108 @@ body, html {
 }
 
 #sidebar {
-	width: 300px;
+	width: 225px;
 	float: left;
-	background-color: #2C3E50;
+	background-color: @sidebar-color;
 	height: 100%;
+
+	h1 {
+		font-family: proxima-nova;
+		font-size: 14px;
+		text-align: center;
+		color: #8EA4BA;
+		background-color: @btn-color-faded;
+		margin: 0;
+		padding: 8px 0;
+		border-bottom: 2px solid black;
+		border-top: 2px solid black;
+		text-transform: uppercase;
+	}
+
+
+	#page-buttons {
+
+		padding: 15px 0;
+
+		.btn-page {
+			font-family: proxima-nova;
+			width: 75%;
+			color: #fff;
+			background-color: @btn-color;
+			//margin-left: auto;
+			//margin-right: auto;
+			border-radius: 5px;
+			border: 2px solid @btn-color;
+			margin: 10px auto 10px auto;
+
+			&.btn-add {
+				background-color: inherit;
+				//border-color: #4F657B;
+				border: 2px solid @btn-color-faded;
+				color: @btn-color-faded;
+
+				.btn-plus {	.btn-sprite(-7px -10px);	}
+
+
+				&.btn-page-hover .btn-plus { .btn-sprite(-7px -29px);	}
+
+
+			}
+
+
+			&.btn-page-hover {
+				.btn-delete { .btn-sprite(-52px -9px); }
+				.btn-edit {	.btn-sprite(-27px -9px); }
+			}
+
+
+			h2 {
+				font-size: 13px;
+				padding: 10px 0 10px 15px;
+				margin: 0;
+				text-transform: uppercase;
+			}
+
+			input[type=text].txt-page-name {
+				border: 0;
+				outline: 0;
+				height: 34px;
+				width: 99px;
+				background-color: transparent;
+				margin-left: 15px;
+				font-family: proxima-nova;
+				color: #fff;
+				text-transform: uppercase;
+			}
+
+		}
+	}
+
+	#element-buttons {
+		.element {
+
+		}
+	}
+
+
 }
 
 #main {
 	float: left;
 }
 
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    @btn-color-faded;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:     @btn-color-faded;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:     @btn-color-faded;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:     @btn-color-faded;
+}
