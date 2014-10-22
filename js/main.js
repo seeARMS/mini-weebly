@@ -2,6 +2,7 @@ require.config({
     baseUrl: "js/libs",
     paths: {
         "jquery":       "jquery/jquery",
+        "jquery-ui":    "jquery-ui/jquery-ui",
         "underscore":   "underscore/underscore-min",
         "backbone":     "backbone/backbone",
         "text":         "requirejs-text/text",
@@ -15,6 +16,9 @@ require.config({
         },
         'underscore': {
             exports: '_'
+        },
+        'jquery-ui': {
+          deps: ["jquery"]
         }
     }
 });

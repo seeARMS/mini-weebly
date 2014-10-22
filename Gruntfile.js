@@ -21,7 +21,8 @@ module.exports = function(grunt) {
         files: ['less/*.less', '<%= jshint.all %>'],
         tasks: ['less', 'jshint'],
         options: {
-          nospawn: true
+          spawn: false,
+          livereload: true
         }
       }
     }
