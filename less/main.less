@@ -41,6 +41,15 @@ body, html {
 
 }
 
+.btn {
+  .primaryfont(13px, #fff, initial);
+  //background-color: @btn-color;
+  border-radius: 5px;
+  border: 2px solid @btn-color;
+  margin: 10px auto 10px auto;
+}
+
+
 #sidebar {
 	width: 225px;
 	float: left;
@@ -68,17 +77,12 @@ body, html {
 		padding: 15px 0;
 
 		.btn-page {
-			//font-family: proxima-nova;
 			width: 75%;
-			//color: #fff;
-      .primaryfont(13px, #fff, initial);
-      //text-align:
+      //.primaryfont(13px, #fff, initial);
 			background-color: @btn-color;
-			//margin-left: auto;
-			//margin-right: auto;
-			border-radius: 5px;
-			border: 2px solid @btn-color;
-			margin: 10px auto 10px auto;
+			//border-radius: 5px;
+			//border: 2px solid @btn-color;
+			//margin: 10px auto 10px auto;
 
 			&.btn-add {
 				background-color: inherit;
@@ -172,7 +176,33 @@ body, html {
 }
 
 #main {
-	float: left;
+	//float: left;
+  padding: 30px 75px;
+  //width:100%;
+//  height: 100%;
+
+  #home-pages {
+    .btn-page {
+      //color: black;
+      background-color: #fff;
+      color: #97AABC;
+      border-color: #97AABC;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      max-width: 120px;
+      margin: 10px;
+      float: left;
+
+      &.active {
+
+        background-color: #97AABC;
+      }
+
+    }
+  }
+
+
 }
 
 

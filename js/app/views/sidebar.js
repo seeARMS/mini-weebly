@@ -11,6 +11,9 @@ define(function (require) {
         ui                  = require('jquery-ui'),
         $page_buttons       = $('#page-container'),
 
+        PageModel           = require('app/models/Page'),
+        PageCollection      = require('app/collections/Pages'),
+
         //template = _.template(content),
         btn_template = _.template(btn_page);
 
@@ -31,15 +34,18 @@ define(function (require) {
 
             "mouseenter .element-container": "mouseenterElemContainer",
             "mouseleave .element-container": "mouseleaveElemContainer"
-
-          //  "blur .btn-page"
         },
 
+        initialize: function() {
+          this.collection = new PageCollection();
 
+          this.listenTo(this.collection, 'reset', this.render);
+          this.collection.fetch({reset: true});
+        },
 
         render: function () {
 
-
+            var self = this;
             //this.$el.html(template());
             this.delegateEvents();
            // $('.btn-page').on('mouseover', 'mouseover', this);
@@ -47,6 +53,25 @@ define(function (require) {
             //$page_buttons.html(btn_template());
             _.bindAll(this, "mouseenter", "mouseleave", "click");
 
+            this.collection.each(function(page) {
+
+              self.trigger("pageAdded", page);
+
+              var variables = {
+                                page_title: page.get('name'),
+                                page_id:    page.id
+                              };
+
+              var html = btn_template(variables);
+              //$(html).data('test');
+
+              $('#page-container').append(html);
+
+            });
+          //  _.each(pageCollection, )
+            //pageCollection.each
+
+          //  console.log(collecti);
             return this;
         },
 
@@ -67,7 +92,7 @@ define(function (require) {
 
         clickDelete: function(event) {
           //console.log("Delete!");
-
+          var self = this;
           var $btn = $(event.currentTarget).parent();
           //console.log($btn.parent());
           $btn.css("background-color", "#D86A65");
@@ -76,8 +101,19 @@ define(function (require) {
           numClicks++;
 
           if (numClicks == 2) {
+
+            console.log($btn);
+            var id = $btn.data('id');
+            //console.log(id);
+            var model = self.collection.get(id);
+
+            self.trigger("pageRemoved", id);
+            model.destroy();
+
             numClicks = 0;
             $btn.fadeOut();
+            //self.collection.remove(model);
+            //model.
             //alert("NICE!");
           }
 
@@ -87,22 +123,27 @@ define(function (require) {
         clickPlus: function(event) {
           var $btn = $(event.currentTarget);
 
+          var textInput = $('.btn-add :input');
+          var pageName = textInput.val();
 
-          var text = $('.btn-add :input').val();
+          var page = new PageModel({ name: pageName });
+          page.save();
 
-            var variables = { page_title: text };
-            //console.log(variables);
-            //var template = _.template(btn_page, variables );
+          this.collection.add(page);
+          console.log(page.id);
+          // id isnt returned from the server yet!??!
+          var variables = {
+                  page_title: page.get('name'),
+                  page_id:    page.id
+          };
 
-
-            var html = btn_template(variables);
+          var html = btn_template(variables);
 
           $('#page-container').append(html).hide().fadeIn();
 
-          //  $(html).appendTo('#page-container').hide().fadeIn(1000);
-//$(html).hide().appendTo("#mycontent").fadeIn(1000);
+          textInput.val('');
 
-          //console.log($btn.parent().children(":input").val());
+          this.trigger("pageAdded", page);
 
         },
 
@@ -137,6 +178,9 @@ define(function (require) {
           $btn.children('.element').draggable({
             cursor: "crosshair",
           });
+
+
+
           //#34485C
         },
 
