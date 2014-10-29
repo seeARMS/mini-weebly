@@ -15,6 +15,11 @@ define(function (require) {
         sidebarView = new SidebarView({el: $sidebar});
 
     return Backbone.View.extend({
+      /*
+      events: {
+          "click body": "loseFocus"
+      }
+      */
 
         render: function () {
             this.$el.html(template());
