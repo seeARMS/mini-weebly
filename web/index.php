@@ -45,7 +45,6 @@ $app->before(function (Request $request) use ($auth, $app, $mysqli) {
       } else if (isset($code))
         return $app->redirect("/mini-weebly");
 
-
       // if the request is an API call, ensure the request token is present
       // in the header
       if ($request->headers->get('X-Requested-With') === 'XMLHttpRequest')
