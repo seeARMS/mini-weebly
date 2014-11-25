@@ -169,21 +169,18 @@ body, html {
       background-position: -169px 18px;
 
     }
-
-
 	}
-
-
 }
 
 #main {
-  padding: 30px 75px;
+  padding: 30px 50px;
+  float: left;
 
   #home-pages {
     .btn-page {
       background-color: #fff;
       color: #97AABC;
-      //border-color: #97AABC;
+      border-color: @top-btn-active;
       padding: 10px;
       text-align: center;
       font-weight: bold;
@@ -196,8 +193,7 @@ body, html {
       }
 
       &.btn-page-click {
-        background-color: @btn-color-faded;
-        border-color: @btn-color-faded;
+        background-color: @top-btn-active;
         color: #fff;
       }
 
