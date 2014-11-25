@@ -3,11 +3,7 @@ define(function (require) {
     "use strict";
 
     var $           = require('jquery'),
-        HomeView    = require('app/views/home'),
-
-        $main = $('#main'),
-
-		homeView = new HomeView({el: $main});
+        HomeView    = require('app/views/home');
 
     return Backbone.Router.extend({
 
@@ -16,6 +12,8 @@ define(function (require) {
         },
 
         home: function () {
+            var homeView = new HomeView({ el: $('#main') });
+
             homeView.delegateEvents();
             homeView.render();
         },

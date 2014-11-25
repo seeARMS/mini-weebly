@@ -43,7 +43,6 @@ body, html {
 
 .btn {
   .primaryfont(13px, #fff, initial);
-  //background-color: @btn-color;
   border-radius: 5px;
   border: 2px solid @btn-color;
   margin: 10px auto 10px auto;
@@ -59,16 +58,11 @@ body, html {
 	h1 {
     .primaryfont(14px, #8EA4BA, center);
 
-		//font-family: proxima-nova;
-		//font-size: 14px;
-		//text-align: center;
-		//color: #8EA4BA;
 		background-color: @btn-color-faded;
 		margin: 0;
 		padding: 8px 0;
 		border-bottom: 2px solid black;
 		border-top: 2px solid black;
-		//text-transform: uppercase;
 	}
 
 
@@ -78,24 +72,19 @@ body, html {
 
 		.btn-page {
 			width: 75%;
-      //.primaryfont(13px, #fff, initial);
-			background-color: @btn-color;
-			//border-radius: 5px;
-			//border: 2px solid @btn-color;
-			//margin: 10px auto 10px auto;
+			background-color: @btn-color-faded;
 
 			&.btn-add {
 				background-color: inherit;
-				//border-color: #4F657B;
 				border: 2px solid @btn-color-faded;
 				color: @btn-color-faded;
 
-				.btn-plus {	.btn-sprite(-7px -10px);	}
+				.btn-plus {
+          .btn-sprite(-7px -10px);
 
+          &.hover-plus { .btn-sprite(-7px -29px);	}
 
-				&.btn-page-hover .btn-plus { .btn-sprite(-7px -29px);	}
-
-
+        }
 			}
 
 
@@ -104,13 +93,16 @@ body, html {
 				.btn-edit {	.btn-sprite(-27px -9px); }
 			}
 
+      &.btn-page-click {
+        background-color: @btn-color;
+      }
+
 
 			h2 {
 				font-size: 13px;
 				padding: 10px 0 10px 15px;
 				margin: 0;
         text-align: left;
-				//text-transform: uppercase;
 			}
 
 			input[type=text].txt-page-name {
@@ -147,6 +139,11 @@ body, html {
 			border: 1px solid @btn-color-faded;
       float: left;
       padding-bottom: 10px;
+
+      &.hover {
+        background-color: @elem-color-active;
+      }
+
 		}
 
 		.elem-title {
@@ -156,7 +153,7 @@ body, html {
 
 		.elem-text {
       background-image: url(../img/sprites/Element-Icons.png);
-      background-position: -61px 18px;
+      background-position: -62px 18px;
     }
 
 		.elem-img {
@@ -170,20 +167,18 @@ body, html {
       background-position: -169px 18px;
 
     }
+
+
 	}
 
 
 }
 
 #main {
-	//float: left;
   padding: 30px 75px;
-  //width:100%;
-//  height: 100%;
 
   #home-pages {
     .btn-page {
-      //color: black;
       background-color: #fff;
       color: #97AABC;
       border-color: #97AABC;
@@ -195,16 +190,17 @@ body, html {
       float: left;
 
       &.active {
-
         background-color: #97AABC;
+      }
+
+      &.btn-page-click {
+        background-color: @btn-color-faded;
+        color: #fff;
       }
 
     }
   }
-
-
 }
-
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    @btn-color-faded;

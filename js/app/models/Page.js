@@ -7,14 +7,7 @@ define(function (require) {
       Backbone            = require('backbone');
 
   return Backbone.Model.extend({
-
-      initialize: function() {
-
-      },
-
-      name: function() {},
-
-      urlRoot: '/api/pages'
+      urlRoot: '/mini-weebly/api/pages'
   });
 
 });

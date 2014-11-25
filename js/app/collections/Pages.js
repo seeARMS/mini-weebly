@@ -9,9 +9,10 @@ define(function (require) {
       Page                = require('app/models/Page');
 
   return Backbone.Collection.extend({
-    //  urlRoot: '/api/pages'
+
     model: Page,
-    url: '/api/pages'
+    url: '/mini-weebly/api/pages'
+
   });
 
 });

@@ -4,7 +4,8 @@ require.config({
         "jquery":       "jquery/jquery",
         "jquery-ui":    "jquery-ui/jquery-ui",
         "underscore":   "underscore/underscore-min",
-        "backbone":     "backbone/backbone",
+        "backbone_vendor": "backbone/backbone",
+        "backbone":     "../app/backbone",
         "text":         "requirejs-text/text",
         "tmpl":         "../tmpl",
         "app":          "../app"
@@ -26,6 +27,4 @@ require.config({
 require(['jquery', 'backbone', 'app/router'], function($, Backbone, Router){
     var router = new Router();
     Backbone.history.start();
-    //new App;
-
 });
